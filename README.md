@@ -4,6 +4,41 @@
 
 KAIScaler is an AI-powered Kubernetes autoscaler that predicts workload spikes using machine learning and optimizes resource allocation **proactively**. Unlike traditional autoscalers (HPA/VPA), KAIScaler anticipates traffic fluctuations before they occur, reducing latency spikes and improving cost efficiency.
 
+                          ┌───────────────────────────────────────────┐
+                          │               Kubernetes Cluster          │
+                          │                                           │
+                          │  ┌──────────────┐       ┌──────────────┐  │
+                          │  │ Pod A        │       │ Pod B        │  │
+                          │  │ App Service  │       │ App Service  │  │
+                          │  └──────────────┘       └──────────────┘  │
+                          │         |                    |            │
+                          │         v                    v            │
+                          │  ┌──────────────────────────────┐         │
+                          │  │      KAIDA Controller        │         │
+                          │  │  (K8s CRD + Custom Operator) │         │
+                          │  └──────────────────────────────┘         │
+                          │              |                            │
+                          │              v                            │
+                          │   ┌───────────────────────────┐           │
+                          │   │  Kubernetes API Server    │           │
+                          │   └───────────────────────────┘           │
+                          └───────────────────────────────────────────┘
+                                         |
+       ┌───────────────────────────────────────────────────────────────────┐
+       │                     External Services                             │
+       │                                                                   │
+       │   ┌───────────┐    ┌────────────┐    ┌────────────────────┐       │
+       │   │ Prometheus│ →  │  Kafka     │ →  │ ML Engine (LSTM)   │       │
+       │   │ (Metrics) │    │  (Events)  │    │ (Predictive Model) │       │
+       │   └───────────┘    └────────────┘    └────────────────────┘       │
+       │        |                      |                      |            │
+       │        v                      v                      v            │
+       │    ┌──────────────┐      ┌───────────────┐      ┌───────────────┐ │
+       │    │ Grafana UI   │      │ Redis Cache   │      │ API Gateway   │ │
+       │    └──────────────┘      └───────────────┘      └───────────────┘ │
+       └───────────────────────────────────────────────────────────────────┘
+
+
 ## Features
 
 - **AI-Powered Predictive Scaling**: Uses LSTM-based machine learning models to forecast workload trends.
