@@ -14,7 +14,7 @@ KAIScaler is an AI-powered Kubernetes autoscaler that predicts workload spikes u
                           │         |                    |            │
                           │         v                    v            │
                           │  ┌──────────────────────────────┐         │
-                          │  │      KAIDA Controller        │         │
+                          │  │      KAiScaler Controller    │         │
                           │  │  (K8s CRD + Custom Operator) │         │
                           │  └──────────────────────────────┘         │
                           │              |                            │
