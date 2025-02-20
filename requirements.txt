@@ -1,0 +1,13 @@
+kubernetes
+prometheus-api-client
+tensorflow
+numpy
+flask
+joblib
+pytest
+requests
+pandas
+docker
+pyyaml
+helm
+flake8
