@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaiscaler-operator
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: kaiscaler
+  template:
+    metadata:
+      labels:
+        app: kaiscaler
+    spec:
+      containers:
+        - name: kaiscaler
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: PROMETHEUS_URL
+              value: "{{ .Values.prometheus.url }}"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
