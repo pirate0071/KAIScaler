@@ -5,7 +5,7 @@ Thank you for your interest in contributing to KAIScaler! We welcome contributio
 ## How to Contribute
 
 ### 1. Fork the Repository
-Go to the [KAIScaler GitHub repository](https://github.com/pirate0071kaiscaler) and click the **Fork** button.
+Go to the [KAIScaler GitHub repository](https://github.com/pirate0071/kaiscaler) and click the **Fork** button.
 
 ### 2. Clone Your Fork
 ```sh
